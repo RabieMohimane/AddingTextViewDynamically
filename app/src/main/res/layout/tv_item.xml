@@ -58,10 +58,9 @@
         android:id="@+id/view"
         android:layout_width="10dp"
         android:layout_height="20dp"
+        android:layout_marginEnd="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv"
         app:layout_constraintEnd_toEndOf="@+id/tv"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="@+id/tv"
         app:layout_constraintTop_toTopOf="@+id/tv"
         app:layout_constraintVertical_bias="0.26" />
 
