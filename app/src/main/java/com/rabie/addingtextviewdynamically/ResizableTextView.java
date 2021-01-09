@@ -81,6 +81,7 @@ public class ResizableTextView extends androidx.appcompat.widget.AppCompatTextVi
                     this.getLayoutParams().width +=  dx;
                 }
                 if(firstY<(float)this.getLayoutParams().height/2){
+
                     this.getLayoutParams().height -=  dy;
                 }else{
                     this.getLayoutParams().height +=  dy;
