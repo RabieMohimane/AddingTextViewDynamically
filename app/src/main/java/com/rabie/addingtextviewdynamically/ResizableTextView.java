@@ -42,14 +42,18 @@ public class ResizableTextView extends androidx.appcompat.widget.AppCompatTextVi
                 final int pointerIndex = ev.getActionIndex();
                 final float x = ev.getX( pointerIndex);
                 final float y = ev.getY( pointerIndex);
-                firstX=x;
-                firstY=y;
+                if(x<20 && y<20 || x<20 && y>this.getLayoutParams().height-20 || x>this.getLayoutParams().width-20 && y>this.getLayoutParams().height-20 ) {
+                    firstX = x;
+                    firstY = y;
 
-                // Remember where we started (for dragging)
-                mLastTouchX = x;
-                mLastTouchY = y;
-                // Save the ID of this pointer (for dragging)
-                mActivePointerId = ev.getPointerId( 0);
+                    // Remember where we started (for dragging)
+                    mLastTouchX = x;
+                    mLastTouchY = y;
+                    // Save the ID of this pointer (for dragging)
+                    mActivePointerId = ev.getPointerId(0);
+                }else{
+                    return  false;
+                }
                 break;
             }
 
