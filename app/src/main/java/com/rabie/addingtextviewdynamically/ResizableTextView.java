@@ -74,17 +74,29 @@ public class ResizableTextView extends androidx.appcompat.widget.AppCompatTextVi
                 Log.e("ACTION2","x+width/2 "+(int)this.getLayoutParams().width/2);
                 Log.e("ACTION2","y+height/2 "+(int)this.getLayoutParams().height/2);
 
-                this.getLayoutParams().height += dy;
+               // this.getLayoutParams().height += dy;
                 if(firstX<(float)this.getLayoutParams().width/2){
+                    Log.e("ACTION3-1","new width"+(this.getLayoutParams().width -  dx));
+                    if(this.getLayoutParams().width -  dx>60.0 &&this.getLayoutParams().width -  dx<1000.0)
                     this.getLayoutParams().width -=  dx;
                 }else{
+                    Log.e("ACTION3-2","new width"+(this.getLayoutParams().width +  dx));
+                    if(this.getLayoutParams().width +  dx<1000.0 && this.getLayoutParams().width +  dx>60.0)
                     this.getLayoutParams().width +=  dx;
                 }
                 if(firstY<(float)this.getLayoutParams().height/2){
-
-                    this.getLayoutParams().height -=  dy;
+                    Log.e("ACTION3-3","new height"+(this.getLayoutParams().height -  dy));
+                    if((this.getLayoutParams().height -  dy)>60.0 &&(this.getLayoutParams().height -  dy)<1000.0) {
+                        this.getLayoutParams().height -= dy;
+                    }
                 }else{
-                    this.getLayoutParams().height +=  dy;
+                    Log.e("ACTION3-4","new height"+(this.getLayoutParams().height + dy));
+                    Log.e("ACTION3-4 result if","if"+(this.getLayoutParams().height + dy<1000.0 && this.getLayoutParams().height + dy>60.0));
+
+                    if(this.getLayoutParams().height + dy<1000.0 && this.getLayoutParams().height + dy>60.0) {
+                        this.getLayoutParams().height += dy;
+                        Log.e("ACTION3-4 ","inside if");
+                    }
                 }
 
                 this.requestLayout();
@@ -93,6 +105,8 @@ public class ResizableTextView extends androidx.appcompat.widget.AppCompatTextVi
                 // Remember this touch position for the next move event
                 mLastTouchX = x;
                 mLastTouchY = y;
+                firstX=x;
+                firstY=y;
 
                 break;
             }
