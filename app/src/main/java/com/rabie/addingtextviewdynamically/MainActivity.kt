@@ -3,6 +3,7 @@ package com.rabie.addingtextviewdynamically
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.MotionEvent.ACTION_MOVE
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     fun addTv() {
         val v: ConstraintLayout = layoutInflater.inflate(R.layout.tv_item, null) as ConstraintLayout
-        val tvMinus=v.findViewById<TextView>(R.id.tvMinus)
+        val tvMinus=v.findViewById<ImageView>(R.id.tvMinus)
         tvMinus.setOnClickListener{
             tvContainer.removeViewAt(tvContainer.indexOfChild(tvMinus.parent as ConstraintLayout))
             tvContainer.invalidate()

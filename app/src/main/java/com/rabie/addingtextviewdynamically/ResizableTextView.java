@@ -42,6 +42,7 @@ public class ResizableTextView extends androidx.appcompat.widget.AppCompatTextVi
                 final int pointerIndex = ev.getActionIndex();
                 final float x = ev.getX( pointerIndex);
                 final float y = ev.getY( pointerIndex);
+                // for allowing drag only in dragable corners
                 if(x<20 && y<20 || x<20 && y>this.getLayoutParams().height-20 || x>this.getLayoutParams().width-20 && y>this.getLayoutParams().height-20 ) {
                     firstX = x;
                     firstY = y;
